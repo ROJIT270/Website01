@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Machine Learning Project for College.",
+    "description": "Something related to Data visualization on some context of districts of nepal.",
+    "fullDescription": "N/A (Will update later)",
+    "tags": ["Jupyter Notebook, Python, Machine learning"],
+    "image": "resources/ProjectJupyterNotebook.png",
+    "github": "https://github.com/ROJIT270/DAML_Indv_Assignment",
+    "demo": "https://ecommerce-demo.com"
+  },
+  {
+    "id": 2,
+    "title": "Task Management App",
+    "description": "Collaborative task manager with real-time updates and team features",
+    "fullDescription": "Developed a real-time task management application with team collaboration features, drag-and-drop interface, deadline tracking, and notification system. Used WebSockets for live updates and implemented role-based access control. Features include Kanban boards, Gantt charts, time tracking, and productivity analytics. Supports team chat and file attachments.",
+    "tags": ["Vue.js", "Firebase", "Tailwind"],
+    "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2306b6d4' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24' font-family='Arial'%3ETask Manager%3C/text%3E%3C/svg%3E",
+    "github": "https://github.com/johndoe/taskmanager",
+    "demo": "https://taskmanager-demo.com"
+  },
+  {
+    "id": 3,
+    "title": "Weather Dashboard",
+    "description": "Real-time weather app with forecasts and interactive maps",
+    "fullDescription": "Created a weather dashboard that displays current conditions, 7-day forecasts, and interactive weather maps using Mapbox GL. Integrated multiple weather APIs (OpenWeather and WeatherAPI) for accurate data and implemented geolocation for automatic location detection. Features include weather alerts, historical data, air quality index, and customizable widgets. Supports multiple locations and units (metric/imperial).",
+    "tags": ["JavaScript", "API", "Chart.js"],
+    "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2310b981' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24' font-family='Arial'%3EWeather App%3C/text%3E%3C/svg%3E",
+    "github": "https://github.com/johndoe/weather",
+    "demo": "https://weather-demo.com"
+  },
+  {
+    "id": 4,
+    "title": "Portfolio Generator",
+    "description": "SaaS tool for creating professional portfolios without coding",
+    "fullDescription": "Built a SaaS platform that allows users to create and customize professional portfolio websites without coding. Features include drag-and-drop builder, multiple professionally designed templates, custom domains, and analytics dashboard showing visitor insights. Implemented subscription billing with Stripe, SEO optimization, and export functionality. Users can connect their GitHub to automatically showcase projects and manage content through an intuitive CMS.",
+    "tags": ["React", "Node.js", "PostgreSQL", "AWS"],
+    "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23f59e0b' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24' font-family='Arial'%3EPortfolio Gen%3C/text%3E%3C/svg%3E",
+    "github": "https://github.com/johndoe/portfolio-gen",
+    "demo": "https://portfolio-gen-demo.com"
+  }
+]
