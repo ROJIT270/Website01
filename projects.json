@@ -1,73 +1,287 @@
-{
-  "name": "my-v0-project",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint ."
-  },
-  "dependencies": {
-    "@hookform/resolvers": "^3.10.0",
-    "@radix-ui/react-accordion": "1.2.2",
-    "@radix-ui/react-alert-dialog": "1.1.4",
-    "@radix-ui/react-aspect-ratio": "1.1.1",
-    "@radix-ui/react-avatar": "1.1.2",
-    "@radix-ui/react-checkbox": "1.1.3",
-    "@radix-ui/react-collapsible": "1.1.2",
-    "@radix-ui/react-context-menu": "2.2.4",
-    "@radix-ui/react-dialog": "1.1.4",
-    "@radix-ui/react-dropdown-menu": "2.1.4",
-    "@radix-ui/react-hover-card": "1.1.4",
-    "@radix-ui/react-label": "2.1.1",
-    "@radix-ui/react-menubar": "1.1.4",
-    "@radix-ui/react-navigation-menu": "1.2.3",
-    "@radix-ui/react-popover": "1.1.4",
-    "@radix-ui/react-progress": "1.1.1",
-    "@radix-ui/react-radio-group": "1.2.2",
-    "@radix-ui/react-scroll-area": "1.2.2",
-    "@radix-ui/react-select": "2.1.4",
-    "@radix-ui/react-separator": "1.1.1",
-    "@radix-ui/react-slider": "1.2.2",
-    "@radix-ui/react-slot": "1.1.1",
-    "@radix-ui/react-switch": "1.1.2",
-    "@radix-ui/react-tabs": "1.1.2",
-    "@radix-ui/react-toast": "1.2.4",
-    "@radix-ui/react-toggle": "1.1.1",
-    "@radix-ui/react-toggle-group": "1.1.1",
-    "@radix-ui/react-tooltip": "1.1.6",
-    "@vercel/analytics": "1.3.1",
-    "autoprefixer": "^10.4.20",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "cmdk": "1.0.4",
-    "date-fns": "4.1.0",
-    "embla-carousel-react": "8.5.1",
-    "input-otp": "1.4.1",
-    "lucide-react": "^0.454.0",
-    "next": "16.0.10",
-    "next-themes": "^0.4.6",
-    "react": "19.2.0",
-    "react-day-picker": "9.8.0",
-    "react-dom": "19.2.0",
-    "react-hook-form": "^7.60.0",
-    "react-resizable-panels": "^2.1.7",
-    "recharts": "2.15.4",
-    "sonner": "^1.7.4",
-    "tailwind-merge": "^3.3.1",
-    "tailwindcss-animate": "^1.0.7",
-    "vaul": "^1.1.2",
-    "zod": "3.25.76"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.9",
-    "@types/node": "^22",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "postcss": "^8.5",
-    "tailwindcss": "^4.1.9",
-    "tw-animate-css": "1.3.3",
-    "typescript": "^5"
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Rojit Khadgi — Full Stack Developer portfolio" />
+  <title>Rojit Khadgi — Full Stack Developer</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Scroll progress -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header id="navbar" class="navbar" role="banner">
+    <div class="container nav-inner">
+      <a href="#home" class="logo" aria-label="Rojit Khadgi home">RK</a>
+
+      <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <nav id="nav-menu" class="nav-menu" role="navigation" aria-label="Primary">
+        <ul>
+          <li><a class="nav-link" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#skills">Skills</a></li>
+          <!-- Changed Experience to OffTopic -->
+          <li><a class="nav-link" href="#offtopic">OffTopic</a></li>
+          <li><a class="nav-link" href="#cv">CV</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero + About combined -->
+    <section id="home" class="hero reveal" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <h1 id="hero-title" class="hero-title">
+            Hi, I'm <span class="highlight">Rojit Khadgi</span>
+          </h1>
+          <p class="hero-sub">Full Stack Developer & Creative Problem Solver</p>
+          <p class="lead">I build usable, accessible, and performant web apps. I care about design, developer experience, and shipping delightful features.</p>
+
+          <div class="hero-ctas">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#cv" class="btn btn-ghost">Download CV</a>
+          </div>
+
+          <div class="about-compact">
+            <h3>My legend</h3>
+            <p>I believe technology should empower people — my journey began with curiosity: "How can I make this better?" I love open source, accessibility, and good coffee.</p>
+            <blockquote class="quote">"The best way to predict the future is to invent it." <cite>— Alan Kay</cite></blockquote>
+          </div>
+        </div>
+
+        <aside class="hero-right">
+          <div class="hero-image" data-parallax>
+            <img id="profile-img" class="profile-img" alt="Profile picture of Rojit Khadgi"
+                 src="resources/3743.jpg"
+                 onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 400 400%27%3E%3Crect width=%27400%27 height=%27400%27 fill=%27%234f46e5%27/%3E%3Ctext x=%2750%25%27 y=%2754%25%27 dominant-baseline=%27middle%27 text-anchor=%27middle%27 fill=%27white%27 font-size=%2736%27 font-family=%27Arial%27%3ERK%3C/text%3E%3C/svg%3E';">
+          </div>
+
+          <div class="timeline-compact">
+            <h4>Journey</h4>
+            <ul>
+              <li><strong>2018</strong> Got my first Laptop </li>
+              <li><strong>2020</strong> Created simple games</li>
+              <li><strong>2022</strong> Joined IIMS for further developement</li>
+              <li><strong>2024</strong> Developed effecient coding skills in JAVA</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="projects reveal" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 id="projects-title" class="section-title">Projects</h2>
+
+        <div class="projects-controls">
+          <input id="search-projects" class="search" type="search" placeholder="Search projects, tags..." aria-label="Search projects">
+          <div id="filter-tags" class="filter-tags" role="list" aria-label="Project filters"></div>
+        </div>
+
+        <div id="projects-grid" class="projects-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+      <div class="modal-panel" role="document">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <div id="modal-body" class="modal-body"></div>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <section id="skills" class="skills reveal" aria-labelledby="skills-title">
+      <div class="container">
+        <h2 id="skills-title" class="section-title">Skills</h2>
+        <div class="skills-controls">
+          <button id="toggle-skill-view" class="btn btn-small" aria-pressed="false">Toggle View</button>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>HTML / CSS</h3>
+            <div class="skill-info">
+              <span class="skill-value">95%</span>
+              <span class="skill-level">Expert</span>
+            </div>
+            <div class="skill-bar"><div class="skill-progress" style="width:95%" data-level="Expert"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <h3>JavaScript</h3>
+            <div class="skill-info">
+              <span class="skill-value">90%</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-bar"><div class="skill-progress" style="width:90%" data-level="Advanced"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <h3>React</h3>
+            <div class="skill-info">
+              <span class="skill-value">85%</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-bar"><div class="skill-progress" style="width:85%" data-level="Advanced"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <h3>Node.js</h3>
+            <div class="skill-info">
+              <span class="skill-value">88%</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-bar"><div class="skill-progress" style="width:88%" data-level="Advanced"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <h3>Docker / AWS</h3>
+            <div class="skill-info">
+              <span class="skill-value">78%</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <div class="skill-bar"><div class="skill-progress" style="width:78%" data-level="Intermediate"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Renamed Experience to OffTopic with blog functionality -->
+    <section id="offtopic" class="offtopic reveal" aria-labelledby="offtopic-title">
+      <div class="container">
+        <h2 id="offtopic-title" class="section-title">OffTopic</h2>
+        <p class="section-subtitle muted center">Random thoughts, learnings, and musings from my journey</p>
+
+        <!-- Admin-only blog creation panel -->
+        <div id="admin-blog-panel" class="add-blog" aria-hidden="true" style="display:none;">
+          <input id="blog-title" type="text" placeholder="Blog title..." aria-label="Blog title" class="blog-title-input">
+          <textarea id="blog-content" placeholder="Write your blog post..." rows="6" aria-label="Blog content"></textarea>
+          <div class="blog-controls">
+            <button id="add-blog" class="btn btn-primary"><i class="fas fa-plus"></i> Publish Blog</button>
+          </div>
+        </div>
+
+        <!-- Blog list (titles only, clickable) -->
+        <div id="blogs-container" class="blogs-container" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Blog Read Modal -->
+    <div id="blog-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="blog-modal-title">
+      <div class="modal-panel blog-modal-panel" role="document">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <div id="blog-modal-body" class="blog-modal-body"></div>
+      </div>
+    </div>
+
+    <!-- CV -->
+    <section id="cv" class="cv reveal" aria-labelledby="cv-title">
+      <div class="container">
+        <h2 id="cv-title" class="section-title">Curriculum Vitae</h2>
+        <div class="cv-actions">
+          <button id="download-cv" class="btn btn-primary"><i class="fas fa-download"></i> Download CV</button>
+          <button id="print-cv" class="btn btn-ghost"><i class="fas fa-print"></i> Print</button>
+        </div>
+
+        <div class="cv-preview">
+          <p class="muted">PDF preview unavailable in demo. Click download to simulate.</p>
+        </div>
+
+        <div id="printable-cv" class="printable-cv" aria-hidden="true">
+          <header><h1>Rojit Khadgi</h1><p>Full Stack Developer</p></header>
+          <section><h3>Summary</h3><p>Experienced Full Stack Developer building scalable web apps.</p></section>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact reveal" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title" class="section-title">Contact</h2>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Let's Connect</h3>
+            <p>Have a project or just want to say hi? Drop a message.</p>
+            <div class="social">
+              <a href="#" aria-label="LinkedIn" class="social-btn"><i class="fab fa-linkedin"></i></a>
+              <a href="#" aria-label="GitHub" class="social-btn"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="Twitter" class="social-btn"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+
+          <!-- Formspree-integrated contact form (action + JS handling) -->
+          <form id="contact-form" class="contact-form" action="https://formspree.io/f/mpqwvbwy" method="POST" novalidate>
+            <div class="field">
+              <label for="name">Name *</label>
+              <input id="name" name="name" required>
+              <span class="error-message" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="email">Email *</label>
+              <input id="email" type="email" name="email" required>
+              <span class="error-message" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="subject">Subject *</label>
+              <input id="subject" name="subject" required>
+              <span class="error-message" aria-live="polite"></span>
+            </div>
+
+            <div class="field">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+              <span class="error-message" aria-live="polite"></span>
+            </div>
+
+            <!-- Honeypot -->
+            <div style="display:none;">
+              <label>Leave this empty: <input name="_gotcha"></label>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Rojit Khadgi • Built with POWER OF THE FRIENDSHIP AND A BIG DICK</p>
+      <div class="footer-actions" style="display:flex; gap:8px;">
+        <button id="footer-theme-toggle" class="btn btn-small">Toggle Theme</button>
+        <button id="admin-toggle" class="btn btn-small">Admin</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

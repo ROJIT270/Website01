@@ -231,13 +231,25 @@ function demoProjects() {
   return [
     {
       id: 101,
-      title: "Demo Shop",
-      description: "Demo e-commerce site.",
-      fullDescription: "Demo full description with features.",
-      tags: ["React", "Node.js"],
+      title: "Machine Learning Project 01",
+      description: "(Subject to Change)",
+      fullDescription: "(Subject to Change)",
+      tags: ["Data Analytics", "Machine Learning"],
       image:
         "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%234f46e5'/%3E%3Ctext x='50%25' y='50%25' fill='white' font-size='32' text-anchor='middle' dominant-baseline='middle'%3EDemo Shop%3C/text%3E%3C/svg%3E",
-      github: "#",
+      github: "https://github.com/ROJIT270/DAML_Indv_Assignment",
+      demo: "#",
+    },
+
+    {
+      id: 101,
+      title: "Machine Learning Project 01",
+      description: "(Subject to Change)",
+      fullDescription: "(Subject to Change)",
+      tags: ["Data Analytics", "Machine Learning"],
+      image:
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%234f46e5'/%3E%3Ctext x='50%25' y='50%25' fill='white' font-size='32' text-anchor='middle' dominant-baseline='middle'%3EDemo Shop%3C/text%3E%3C/svg%3E",
+      github: "https://github.com/ROJIT270/DAML_Indv_Assignment",
       demo: "#",
     },
   ]
@@ -675,8 +687,8 @@ function openBlogModal(id) {
   const adminControls = isAdmin()
     ? `
     <div class="blog-modal-admin">
-      <button onclick="editBlog(${blog.id})"><i class="fas fa-edit"></i> Edit</button>
-      <button class="delete" onclick="deleteBlog(${blog.id})"><i class="fas fa-trash"></i> Delete</button>
+      <button data-action="edit" data-blog-id="${blog.id}"><i class="fas fa-edit"></i> Edit</button>
+      <button class="delete" data-action="delete" data-blog-id="${blog.id}"><i class="fas fa-trash"></i> Delete</button>
     </div>
   `
     : ""
@@ -694,13 +706,15 @@ function openBlogModal(id) {
     </div>
     <div class="blog-modal-footer">
       <div class="blog-modal-like">
-        <button onclick="likeBlog(${blog.id})" class="${blog.liked ? "liked" : ""}">
+        <button data-action="like" data-blog-id="${blog.id}" class="${blog.liked ? "liked" : ""}">
           <i class="fas fa-heart"></i> ${blog.liked ? "Liked" : "Like"} (${blog.likes || 0})
         </button>
       </div>
       ${adminControls}
     </div>
   `
+
+  body.addEventListener("click", handleBlogModalClick)
 
   modal.setAttribute("aria-hidden", "false")
   modal.style.display = "flex"
@@ -712,9 +726,31 @@ function openBlogModal(id) {
   trapFocus(modal)
 }
 
+function handleBlogModalClick(e) {
+  const button = e.target.closest("button[data-action]")
+  if (!button) return
+
+  const action = button.dataset.action
+  const blogId = Number.parseInt(button.dataset.blogId, 10)
+
+  if (action === "like") {
+    likeBlog(blogId)
+  } else if (action === "edit") {
+    editBlog(blogId)
+  } else if (action === "delete") {
+    deleteBlog(blogId)
+  }
+}
+
 function closeBlogModal() {
   const modal = document.getElementById("blog-modal")
   if (!modal) return
+
+  const body = document.getElementById("blog-modal-body")
+  if (body) {
+    body.removeEventListener("click", handleBlogModalClick)
+  }
+
   state.currentBlogId = null
   modal.removeAttribute("open")
   modal.setAttribute("aria-hidden", "true")
