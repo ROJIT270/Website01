@@ -32,7 +32,8 @@
           <li><a class="nav-link" href="#home">Home</a></li>
           <li><a class="nav-link" href="#projects">Projects</a></li>
           <li><a class="nav-link" href="#skills">Skills</a></li>
-          <li><a class="nav-link" href="#experience">Experience</a></li>
+          <!-- Changed Experience to OffTopic -->
+          <li><a class="nav-link" href="#offtopic">OffTopic</a></li>
           <li><a class="nav-link" href="#cv">CV</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
@@ -169,22 +170,33 @@
       </div>
     </section>
 
-    <!-- Experience (posts) -->
-    <section id="experience" class="experience reveal" aria-labelledby="experience-title">
+    <!-- Renamed Experience to OffTopic with blog functionality -->
+    <section id="offtopic" class="offtopic reveal" aria-labelledby="offtopic-title">
       <div class="container">
-        <h2 id="experience-title" class="section-title">Experience Sharing</h2>
+        <h2 id="offtopic-title" class="section-title">OffTopic</h2>
+        <p class="section-subtitle muted center">Random thoughts, learnings, and musings from my journey</p>
 
-        <!-- Admin-only posting panel: hidden unless admin-authenticated -->
-        <div id="admin-post-panel" class="add-post" aria-hidden="true" style="display:none;">
-          <textarea id="post-content" placeholder="Share something you learned today..." rows="3" aria-label="Post content"></textarea>
-          <div class="post-controls">
-            <button id="add-post" class="btn btn-primary">Add Post</button>
+        <!-- Admin-only blog creation panel -->
+        <div id="admin-blog-panel" class="add-blog" aria-hidden="true" style="display:none;">
+          <input id="blog-title" type="text" placeholder="Blog title..." aria-label="Blog title" class="blog-title-input">
+          <textarea id="blog-content" placeholder="Write your blog post..." rows="6" aria-label="Blog content"></textarea>
+          <div class="blog-controls">
+            <button id="add-blog" class="btn btn-primary"><i class="fas fa-plus"></i> Publish Blog</button>
           </div>
         </div>
 
-        <div id="posts-container" class="posts-container" aria-live="polite"></div>
+        <!-- Blog list (titles only, clickable) -->
+        <div id="blogs-container" class="blogs-container" aria-live="polite"></div>
       </div>
     </section>
+
+    <!-- Blog Read Modal -->
+    <div id="blog-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="blog-modal-title">
+      <div class="modal-panel blog-modal-panel" role="document">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <div id="blog-modal-body" class="blog-modal-body"></div>
+      </div>
+    </div>
 
     <!-- CV -->
     <section id="cv" class="cv reveal" aria-labelledby="cv-title">
@@ -262,7 +274,7 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> Rojit Khadgi • Built with ❤️ & vanilla JS</p>
+      <p>&copy; <span id="year"></span> Rojit Khadgi • Built with POWER OF THE FRIENDSHIP AND A BIG DICK</p>
       <div class="footer-actions" style="display:flex; gap:8px;">
         <button id="footer-theme-toggle" class="btn btn-small">Toggle Theme</button>
         <button id="admin-toggle" class="btn btn-small">Admin</button>
